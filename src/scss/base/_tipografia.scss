@@ -22,3 +22,15 @@ p {
     color: v.$blanco;
     font-size: 2rem;
 }
+
+// Clases
+
+.nombre-pagina {
+    text-align: center;
+    margin: 5rem 0;
+    font-weight: v.$bold;
+}
+
+.descripcion-pagina {
+    text-align: center;
+}
