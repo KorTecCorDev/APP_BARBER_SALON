@@ -1,4 +1,4 @@
-<h1 class="nombre-pagina">Login</h1>
+<h1 class="nombre-pagina">Barbería "El Sozza"</h1>
 <p class="descripcion-pagina">Inicia sesión con tus datos</p>
 
 <form class="formular" method="POST" action="/">
