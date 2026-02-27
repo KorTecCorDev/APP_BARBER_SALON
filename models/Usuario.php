@@ -32,6 +32,7 @@ class Usuario extends ActiveRecord {
     //Mensajes de validación para la creación de una cuenta
 
     public function validarNuevaCuenta() {
+
         if(!$this->nombre){
             self::$alertas ['error'][] = 'El Nombre es Obligatorio';
         }
@@ -42,8 +43,14 @@ class Usuario extends ActiveRecord {
             self::$alertas ['error'][] = 'El Email es Obligatorio';
         }
         if(!$this->telefono){
-            self::$alertas ['error'][] = 'El  número de Teléfono es Obligatorio';
-        }        
+            self::$alertas ['error'][] = 'El número de Teléfono es Obligatorio';
+        }
+        if(!$this->password){
+            self::$alertas ['error'][] = 'La contraseña es Obligatoria';
+        }
+        if(strlen($this->password) < 6){
+            self::$alertas ['error'][] = 'La contraseña debe contener al menos 6 caracteres';
+        }
         return self::$alertas;
     }
 }
