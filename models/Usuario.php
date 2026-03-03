@@ -58,10 +58,14 @@ class Usuario extends ActiveRecord {
         $query = "SELECT * FROM " . self::$tabla . " WHERE email ='". $this->email."' LIMIT 1";
         //Ejecutando la consulta SQL
         $resultado = self::$db->query($query);
-        if($resultado && $resultado->num_rows) {
+        if($resultado->num_rows) {
             self::$alertas['error'][] = 'El Usuario ya está registrado';
         }
 
         return $resultado;
+    }
+
+    public function hashPassword() {
+        $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }
 }
