@@ -5,7 +5,7 @@ namespace Model;
 class Usuario extends ActiveRecord {
     // Base de datos
     protected static $tabla = 'usuarios';
-    protected static $columnasDB = ['id', 'nombre' , 'apellido', 'email' , 'password', 'telefono'. 'admin' , 'confirmado' , 'token'];
+    protected static $columnasDB = ['id', 'nombre' , 'apellido', 'email' , 'password', 'telefono', 'admin' , 'confirmado' , 'token'];
 
     public $id;
     public $nombre;
@@ -52,5 +52,16 @@ class Usuario extends ActiveRecord {
             self::$alertas ['error'][] = 'La contraseña debe contener al menos 6 caracteres';
         }
         return self::$alertas;
+    }
+// Revisa si el usuario ya existe
+    public function existeUsuario() {
+        $query = "SELECT * FROM " . self::$tabla . " WHERE email ='". $this->email."' LIMIT 1";
+        //Ejecutando la consulta SQL
+        $resultado = self::$db->query($query);
+        if($resultado && $resultado->num_rows) {
+            self::$alertas['error'][] = 'El Usuario ya está registrado';
+        }
+
+        return $resultado;
     }
 }
