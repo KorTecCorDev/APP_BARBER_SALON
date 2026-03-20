@@ -3,6 +3,7 @@ namespace Controllers;
 
 use Model\Usuario;
 use MVC\Router;
+use Classes\Email;
 
 class LoginController {
     public static function login(Router $router) {
@@ -38,6 +39,14 @@ class LoginController {
             } else {
                 //Hashear el password
                 $usuario->hashPassword();
+
+                //Generar un token único
+                $usuario->crearToken();
+
+                //Enviar el Email
+                $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+
+                //Enviar el Email
                 debuguear($usuario);
             }
         }

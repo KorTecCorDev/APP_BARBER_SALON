@@ -32,7 +32,6 @@ class Usuario extends ActiveRecord {
     //Mensajes de validación para la creación de una cuenta
 
     public function validarNuevaCuenta() {
-
         if(!$this->nombre){
             self::$alertas ['error'][] = 'El Nombre es Obligatorio';
         }
@@ -61,11 +60,13 @@ class Usuario extends ActiveRecord {
         if($resultado->num_rows) {
             self::$alertas['error'][] = 'El Usuario ya está registrado';
         }
-
         return $resultado;
     }
 
     public function hashPassword() {
         $this->password = password_hash($this->password, PASSWORD_BCRYPT);
+    }
+    public function crearToken() {
+        $this->token = uniqid();
     }
 }
