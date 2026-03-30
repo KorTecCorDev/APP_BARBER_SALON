@@ -49,15 +49,23 @@ class LoginController {
                 $email->enviarConfirmacion();
 
                  //Crear el usuario
-
+                $resultado = $usuario->guardar();
+                if($resultado) {
+                    echo "Usuario creado correctamente";
+                }
                 //Enviar el Email
-                debuguear($usuario);
+                header('Location: /mensaje');
             }
         }
         }
         $router-> render ('auth/crear-cuenta', [
             'usuario' => $usuario,
             'alertas' => $alertas
+        ]);
+    }
+    public static function mensaje(Router $router) {
+        $router-> render ('auth/mensaje', [
+
         ]);
     }
 }
