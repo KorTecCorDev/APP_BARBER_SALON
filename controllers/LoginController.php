@@ -46,12 +46,15 @@ class LoginController {
                 //Enviar el Email
                 $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
 
+                $email->enviarConfirmacion();
+
+                 //Crear el usuario
+
                 //Enviar el Email
                 debuguear($usuario);
             }
         }
         }
-
         $router-> render ('auth/crear-cuenta', [
             'usuario' => $usuario,
             'alertas' => $alertas

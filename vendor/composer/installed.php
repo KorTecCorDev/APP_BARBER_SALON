@@ -3,7 +3,7 @@
         'name' => 'korte/app-salon_php_mvc_js_sass',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '2a5a824d1948c1c9266febe09cd8b7a1caa534a2',
+        'reference' => '483e3f4897606bc5451ef851221f8fcff5283cf2',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'korte/app-salon_php_mvc_js_sass' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '2a5a824d1948c1c9266febe09cd8b7a1caa534a2',
+            'reference' => '483e3f4897606bc5451ef851221f8fcff5283cf2',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
